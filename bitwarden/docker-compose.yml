@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  bitwarden:
+    image: vaultwarden/server:latest
+    container_name: bitwarden
+    restart: always
+    environment:
+      - ROCKET_TLS={certs="/ssl/<YOUR CERTIFICATE>",key="/ssl/<YOUR KEY>"}
+      - SIGNUPS_ALLOWED=false
+      - ADMIN_TOKEN=<YOUR_TOKEN>
+    volumes:
+      - <DATA LOCATION ON RASPI>:/data/
+      - <CERTIFICATE LOCATION ON RASPI>:/ssl/
+    ports:
+      - "<EXTERNAL LISTENING PORT>:80/tcp"

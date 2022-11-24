@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  godaddy-ddns:
+    container_name: godaddy-ddns
+    image: loganavatar/rpi-godaddy-ddns
+    environment:
+      - GODADDY_KEY=<API KEY FROM GODADDY>
+      - GODADDY_SECRET=<SECRET KEY FROM GODADDY>
+      - GODADDY_DOMAIN=<YOUR DOMAIN>

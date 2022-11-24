@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  nginx-proxy-mananger:
+    container_name: nginx-proxy-manager
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: always
+    ports:
+      - '80:80' 	# Public HTTP Port
+      - '443:443' 	# Public HTTPS Port
+      - '81:81' 	# Admin Web Port
+    environment:
+      DB_SQLITE_FILE: "/data/database.sqlite"
+      DISABLE_IPV6: "true"
+    volumes:
+      - <DATA LOCATION ON RASPI>:/data
+      - <LETSENCRYPT LOCATION ON RASPI>:/etc/letsencrypt

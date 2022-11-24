@@ -1,0 +1,39 @@
+version: '2'
+
+services:
+  db:
+    container_name: filerun-db
+    image: tobi312/rpi-mariadb:10.3
+    environment:
+      MYSQL_ROOT_PASSWORD: <ROOT PW>
+      MYSQL_USER: <SQL USER>
+      MYSQL_PASSWORD: <SQL USER PW>
+      MYSQL_DATABASE: <DATABASE>
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/London
+    volumes:
+      - <DATABASE LOCATION ON RASPI>:/var/lib/mysql
+
+  web:
+    container_name: filerun-app
+    image: filerun/filerun:arm64v8
+    environment:
+      FR_DB_HOST: db
+      FR_DB_PORT: 3306
+      FR_DB_NAME: <DATABASE>
+      FR_DB_USER: <SQL USER>
+      FR_DB_PASS: <SQL USER PW>
+      APACHE_RUN_USER: <USER>
+      APACHE_RUN_USER_ID: 1000
+      APACHE_RUN_GROUP: <USER>
+      APACHE_RUN_GROUP_ID: 1000
+    depends_on:
+      - db
+    links:
+      - db:db
+    ports:
+      - "<EXTERNAL LISTENING PORT>::80"
+    volumes:
+      - <HTML DATA LOCATION ON RASPI>:/var/www/html
+      - <FILE DATA LOCATION ON RASPI>:/user-files
