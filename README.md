@@ -13,8 +13,9 @@ sudo apt-get install -y libffi-dev libssl-dev python3-dev python3 python3-pip
 sudo pip3 install docker-compose
 ```
 ## Create Docker Stack
-1. Create a directory including the docker compose file. The directory name will be the stack name
-2. Run this command
+1. Update `<VARIABLES>` in docker-compose.yml
+2. Create a directory including the docker compose file. The directory name will be the stack name
+3. Run this command
 ```bash
 docker compose up -d
 ```
