@@ -19,3 +19,10 @@ sudo pip3 install docker-compose
 ```bash
 docker compose up -d
 ```
+## Templates
+- [Bitwarden](https://github.com/ReddixT/raspberry-docker-compose/tree/main/bitwarden)
+- [Filerun](https://github.com/ReddixT/raspberry-docker-compose/tree/main/filerun)
+- [GoDaddy DDNS](https://github.com/ReddixT/raspberry-docker-compose/tree/main/godaddy-ddns)
+- [Nginx Proxy Manager](https://github.com/ReddixT/raspberry-docker-compose/tree/main/nginx-proxy-manager)
+- [PiHole](https://github.com/ReddixT/raspberry-docker-compose/tree/main/pihole)
+- [Portainer](https://github.com/ReddixT/raspberry-docker-compose/tree/main/portainer)
